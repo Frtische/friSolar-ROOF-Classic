@@ -156,7 +156,7 @@ with aus:
 
     def to_excel(df):
         output = BytesIO()
-        with pd.ExcelWriter(output) as writer:
+        with pd.ExcelWriter(output, engine='openpyxl') as writer:
             df.to_excel(writer, index=False, sheet_name='Stückliste')
         return output.getvalue()
 
