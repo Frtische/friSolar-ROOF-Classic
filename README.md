@@ -1,1 +1,1 @@
-# friSolar-ROOF-Classic
+# friSolar-Konfiguratoren
