@@ -171,7 +171,7 @@ with ein:
 
     skl, skr = st.columns([6,1])
     with skl:
-        sk=st.number_input("Schneelast 'sk' laut E-Hora eingeben [kN/m²]:", min_value=0.0, format="%.1f")
+        sk=st.number_input('Schneelast "sk" laut E-Hora eingeben [kN/m²]:', min_value=0.0, format="%.1f")
     with skr:
         st.markdown('<div style="padding-top: 28px;"></div>', unsafe_allow_html=True)
         st.link_button("E-Hora","https://hora.gv.at/#/cschneelast/bgrau/a-/@47.72463,13.50823,8z")
