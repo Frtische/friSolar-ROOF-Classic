@@ -89,53 +89,53 @@ def berechnen(b:float, t:float, s:float):
     match s: #CP60 #Variante
         case n if n < sk_stufen[0][0]: #4mm #PUR
             listeneintrag_cp60("4mm", cp60_anz, anz_breite)
-                 
-        case n if sk_stufen[0][2-sk_mod] <= n < sk_stufen[0][3]:  # 6mm #PUR
+
+        case n if sk_stufen[0][2-2*sk_mod] <= n < sk_stufen[0][3]:  #6mm #PUR
             listeneintrag_cp60("6mm", cp60_anz, anz_breite)
-         
+
         case n if sk_stufen[0][0] <= n < sk_stufen[0][1]: #4mm #4S
             listeneintrag_cp60("4mm", cp60_anz, anz_breite)
-            nr_cp60.append(parts2[0])  # Querstrebe
+            nr_cp60.append(parts2[0])  #Querstrebe
             stk_cp60.append(anz_breite * (cp60_anz + 1))
 
-        case n if sk_stufen[0][2+sk_mod] <= n < sk_stufen[0][4]:  # 6mm #4S
+        case n if sk_stufen[0][2+sk_mod] <= n < sk_stufen[0][4]:  #6mm #4S
             listeneintrag_cp60("6mm", cp60_anz, anz_breite)
-            nr_cp60.append(parts2[0])  # Querstrebe
+            nr_cp60.append(parts2[0])  #Querstrebe
             stk_cp60.append(anz_breite * (cp60_anz + 1))
 
         case n if sk_stufen[0][1] <= n < sk_stufen[0][2]: #4mm #4S+
             listeneintrag_cp60("4mm", cp60_anz, anz_breite)
-            nr_cp60.append(parts2[0])  # Querstrebe
+            nr_cp60.append(parts2[0])  #Querstrebe
             stk_cp60.append(anz_breite * (2 * cp60_anz + 1))
 
         case n if sk_stufen[0][4] <= n < sk_stufen[0][5]: #6mm #4S+
             listeneintrag_cp60("6mm", cp60_anz, anz_breite)
-            nr_cp60.append(parts2[0])  # Querstrebe
+            nr_cp60.append(parts2[0])  #Querstrebe
             stk_cp60.append(anz_breite * (2 * cp60_anz + 1))
 
     match s: #CP72 #Variante
-        case n if n < sk_stufen[1][0]:  # 4mm #PUR
+        case n if n < sk_stufen[1][0]:  #4mm #PUR
             listeneintrag_cp72("4mm", cp72_anz, anz_breite)
-         
-         case n if sk_stufen[1][2 - sk_mod] <= n < sk_stufen[1][3]:  # 6mm #PUR
-                     listeneintrag_cp72("6mm", cp72_anz, anz_breite)
 
-        case n if sk_stufen[1][0] <= n < sk_stufen[1][1]:  # 4mm #4S
-            listeneintrag_cp72("4mm", cp72_anz, anz_breite)
-            nr_cp72.append(parts2[0])  # Querstrebe
-            stk_cp72.append(anz_breite * (cp72_anz + 1))
-
-        case n if sk_stufen[1][2 + sk_mod] <= n < sk_stufen[1][4]:  # 6mm #4S
+        case n if sk_stufen[1][2 - 2*sk_mod] <= n < sk_stufen[1][3]:  #6mm #PUR
             listeneintrag_cp72("6mm", cp72_anz, anz_breite)
-            nr_cp72.append(parts2[0])  # Querstrebe
+
+        case n if sk_stufen[1][0] <= n < sk_stufen[1][1]:  #4mm #4S
+            listeneintrag_cp72("4mm", cp72_anz, anz_breite)
+            nr_cp72.append(parts2[0])  #Querstrebe
             stk_cp72.append(anz_breite * (cp72_anz + 1))
 
-        case n if sk_stufen[1][1] <= n < sk_stufen[1][2]:  # 4mm #4S+
+        case n if sk_stufen[1][2 + sk_mod] <= n < sk_stufen[1][4]:  #6mm #4S
+            listeneintrag_cp72("6mm", cp72_anz, anz_breite)
+            nr_cp72.append(parts2[0])  #Querstrebe
+            stk_cp72.append(anz_breite * (cp72_anz + 1))
+
+        case n if sk_stufen[1][1] <= n < sk_stufen[1][2]:  #4mm #4S+
             listeneintrag_cp72("4mm", cp72_anz, anz_breite)
-            nr_cp72.append(parts2[0])  # Querstrebe
+            nr_cp72.append(parts2[0])  #Querstrebe
             stk_cp72.append(anz_breite * (2 * cp72_anz + 1))
 
-        case n if sk_stufen[1][4] <= n < sk_stufen[1][5]:  # 6mm #4S+
+        case n if sk_stufen[1][4] <= n < sk_stufen[1][5]:  #6mm #4S+
             listeneintrag_cp72("6mm", cp72_anz, anz_breite)
             nr_cp72.append(parts2[0])  # Querstrebe
             stk_cp72.append(anz_breite * (2 * cp72_anz + 1))
@@ -171,7 +171,7 @@ with ein:
 
     skl, skr = st.columns([6,1])
     with skl:
-        sk=st.number_input('Schneelast "sk" laut E-Hora eingeben [kN/m²]:', min_value=0.0, format="%.1f")
+        sk=st.number_input("Schneelast 'sk' laut E-Hora eingeben [kN/m²]:", min_value=0.0, format="%.1f")
     with skr:
         st.markdown('<div style="padding-top: 28px;"></div>', unsafe_allow_html=True)
         st.link_button("E-Hora","https://hora.gv.at/#/cschneelast/bgrau/a-/@47.72463,13.50823,8z")
