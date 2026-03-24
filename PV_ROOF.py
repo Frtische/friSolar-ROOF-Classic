@@ -89,14 +89,14 @@ def berechnen(b:float, t:float, s:float):
     match s: #CP60 #Variante
         case n if n < sk_stufen[0][0]: #4mm #PUR
             listeneintrag_cp60("4mm", cp60_anz, anz_breite)
-
+                 
+        case n if sk_stufen[0][2-sk_mod] <= n < sk_stufen[0][3]:  # 6mm #PUR
+            listeneintrag_cp60("6mm", cp60_anz, anz_breite)
+         
         case n if sk_stufen[0][0] <= n < sk_stufen[0][1]: #4mm #4S
             listeneintrag_cp60("4mm", cp60_anz, anz_breite)
             nr_cp60.append(parts2[0])  # Querstrebe
             stk_cp60.append(anz_breite * (cp60_anz + 1))
-
-        case n if sk_stufen[0][2-sk_mod] <= n < sk_stufen[0][3]:  # 6mm #PUR
-            listeneintrag_cp60("6mm", cp60_anz, anz_breite)
 
         case n if sk_stufen[0][2+sk_mod] <= n < sk_stufen[0][4]:  # 6mm #4S
             listeneintrag_cp60("6mm", cp60_anz, anz_breite)
@@ -116,14 +116,14 @@ def berechnen(b:float, t:float, s:float):
     match s: #CP72 #Variante
         case n if n < sk_stufen[1][0]:  # 4mm #PUR
             listeneintrag_cp72("4mm", cp72_anz, anz_breite)
+         
+         case n if sk_stufen[1][2 - sk_mod] <= n < sk_stufen[1][3]:  # 6mm #PUR
+                     listeneintrag_cp72("6mm", cp72_anz, anz_breite)
 
         case n if sk_stufen[1][0] <= n < sk_stufen[1][1]:  # 4mm #4S
             listeneintrag_cp72("4mm", cp72_anz, anz_breite)
             nr_cp72.append(parts2[0])  # Querstrebe
             stk_cp72.append(anz_breite * (cp72_anz + 1))
-
-        case n if sk_stufen[1][2 - sk_mod] <= n < sk_stufen[1][3]:  # 6mm #PUR
-            listeneintrag_cp72("6mm", cp72_anz, anz_breite)
 
         case n if sk_stufen[1][2 + sk_mod] <= n < sk_stufen[1][4]:  # 6mm #4S
             listeneintrag_cp72("6mm", cp72_anz, anz_breite)
